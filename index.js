@@ -162,13 +162,7 @@ function addHtml(member) {
             };
             return resolve();
         });
-    });
-    
-            
-    
-        
-    
-    
+    });    
 }
 
 function finishHtml() {
