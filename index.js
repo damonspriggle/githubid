@@ -4,6 +4,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+
 const employees = [];
 
 function initApp() {
@@ -13,25 +14,25 @@ function initApp() {
 
 function addMember() {
     inquirer.prompt([{
-        message: "Enter team member's name",
+        message: "Enter name",
         name: "name"
     },
     {
         type: "list",
-        message: "Select team member's role",
+        message: "Select role",
         choices: [
-            "Engineer",
             "Intern",
+            "Engineer",
             "Manager"
         ],
         name: "role"
     },
     {
-        message: "Enter team member's id",
+        message: "Enter id",
         name: "id"
     },
     {
-        message: "Enter team member's email address",
+        message: "Enter email",
         name: "email"
     }])
     .then(function({name, role, id, email}) {
@@ -44,12 +45,12 @@ function addMember() {
             roleInfo = "office phone number";
         }
         inquirer.prompt([{
-            message: `Enter team member's ${roleInfo}`,
+            message: `Enter ${roleInfo}`,
             name: "roleInfo"
         },
         {
             type: "list",
-            message: "Would you like to add more team members?",
+            message: "Add more members?",
             choices: [
                 "yes",
                 "no"
@@ -79,13 +80,6 @@ function addMember() {
     });
 }
 
-// function renderHtml(memberArray) {
-//     startHtml();
-//     for (const member of memberArray) {
-//         addHtml(member);
-//     }
-//     finishHtml();
-// }
 
 function startHtml() {
     const html = `<!DOCTYPE html>
@@ -103,7 +97,7 @@ function startHtml() {
         </nav>
         <div class="container">
             <div class="row">`;
-    fs.writeFile("./output/team.html", html, function(err) {
+    fs.writeFile("./dist/finish.html", html, function(err) {
         if (err) {
             console.log(err);
         }
@@ -155,8 +149,8 @@ function addHtml(member) {
             </div>
         </div>`
         }
-        console.log("adding team member");
-        fs.appendFile("./output/team.html", data, function (err) {
+        console.log("adding member");
+        fs.appendFile("./dist/finish.html", data, function (err) {
             if (err) {
                 return reject(err);
             };
@@ -172,7 +166,7 @@ function finishHtml() {
 </body>
 </html>`;
 
-    fs.appendFile("./output/team.html", html, function (err) {
+    fs.appendFile("./dist/finish.html", html, function (err) {
         if (err) {
             console.log(err);
         };
