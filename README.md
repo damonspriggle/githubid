@@ -24,4 +24,4 @@ This app uses concepts from Test-Driven Development such as Jest and HTML.
 
 Example of Application In Use
 
-![Video]
+![Video](examplejest.webm)
